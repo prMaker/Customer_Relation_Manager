@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - kaishengit_crm@localhost" uuid="579d6218-f8b3-4e5f-95c3-aa590f346a4e">
+    <database-info product="MySQL" version="5.7.10-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="kaishengit_crm"/>
+      <table id="2" parent="1" name="t_role"/>
+      <table id="3" parent="1" name="t_user"/>
+      <table id="4" parent="1" name="t_user_log"/>
+      <column id="5" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="6" parent="2" name="rolename">
+        <comment>角色</comment>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="7" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="8" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="9" parent="3" name="username">
+        <comment>用户名</comment>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="10" parent="3" name="password">
+        <comment>用户密码</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="11" parent="3" name="realname">
+        <comment>真是名字</comment>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="12" parent="3" name="weixin">
+        <comment>微信</comment>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="13" parent="3" name="createtime">
+        <comment>创建时间</comment>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="14" parent="3" name="enable">
+        <comment>是否可用</comment>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;1&apos;</default-expression>
+      </column>
+      <column id="15" parent="3" name="roleid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="16" parent="3" name="fk_user_role_idx">
+        <columns>roleid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="17" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="18" parent="3" name="fk_user_role">
+        <columns>roleid</columns>
+        <ref-key>~.t_role.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="19" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="20" parent="4" name="logintime">
+        <comment>登录时间</comment>
+        <data-type>timestamp</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="21" parent="4" name="loginip">
+        <comment>登录ip</comment>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="22" parent="4" name="userid">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="23" parent="4" name="fk_userlog_user1_idx">
+        <columns>userid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="24" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="25" parent="4" name="fk_userlog_user1">
+        <columns>userid</columns>
+        <ref-key>~.t_user.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+    </database-model>
+  </data-source>
+</component>
